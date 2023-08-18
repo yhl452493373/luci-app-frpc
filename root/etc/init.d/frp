@@ -228,7 +228,7 @@ start() {
 	[ ! -f "/usr/bin/frpc" ] && download_binary
 	[ ! -f "/usr/bin/frpc" ] && logger -t Frp 'Download frpc failed, please retry.' && exit 0
 	
-	local tmpconf="/var/etc/frp/frpc.conf"
+	local tmpconf="/var/etc/frp/frpc.ini"
 
 	echo "[common]" >$tmpconf
 	echo "server_addr=${server_addr}" >>$tmpconf
