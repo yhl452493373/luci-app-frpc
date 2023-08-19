@@ -165,7 +165,8 @@ fi
 }
 
 download_binary(){
-	local frp_url="https://github.com/fatedier/frp/releases/download/v0.51.3/frp_0.51.3_linux_amd64.tar.gz"
+	local frp_version=0.51.3
+	local frp_url="https://github.com/fatedier/frp/releases/download/v${frp_version}/frp_${frp_version}_linux_amd64.tar.gz"
 	local frp_file_name="${frp_url##*/}"
 	local frp_file_dir="${frp_file_name%%.tar.gz*}"
 	echo_date "开始下载frpc二进制文件..."
