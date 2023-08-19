@@ -7,7 +7,7 @@
 + 默认不启动定时注册（定时注册默认设为0）
 + 调整部分翻译
 
-如果你是非amd64（x86-64）平台，请自行修改`FRP_URL`、`FRP_HASH`以及[root/etc/init.d/frp](root/etc/init.d/frp)中`local frp_url`中与架构相关的部分，将`sdk_url`改为对应架构的sdk地址
+如果你是非amd64（x86-64）平台，请自行修改`FRP_URL`、[root/etc/init.d/frp](root/etc/init.d/frp)中`local frp_url`中与架构相关的部分，将`sdk_url`改为对应架构的sdk地址
 
 ## LEDE SDK下编译（包含[最新的frp](https://github.com/yhl452493373/openwrt-frp.git))
 ```bash
@@ -43,5 +43,4 @@ make defconfig
 make package/luci-app-frpc/clean
 make package/luci-app-frpc/compile V=s
 ```
-编译后，在 `bin/packages/x86_64/luci` 下
-
+编译后，在`bin/packages/平台架构/luci`下。amd64（x86_64）在 `bin/packages/x86_64/luci` 下
