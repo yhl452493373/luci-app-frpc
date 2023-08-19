@@ -1,7 +1,5 @@
 #!/bin/sh
 
-chmod 755 /etc/init.d/frp
-
 uci -q batch <<-EOF >/dev/null
 	delete ucitrack.@frp[-1]
 	add ucitrack frp
