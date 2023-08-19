@@ -19,4 +19,4 @@ git clone https://github.com/yhl452493373/luci-app-frpc feeds/luci/applications/
 chmod 755 feeds/luci/applications/luci-app-frpc/root/etc/init.d/frp
 chmod 755 feeds/luci/applications/luci-app-frpc/root/etc/uci-defaults/luci-frp
 ```
-### 4、编译
+### 4、选中luci-app-frpc并编译
