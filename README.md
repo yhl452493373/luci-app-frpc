@@ -7,6 +7,8 @@
 + 默认不启动定时注册（定时注册默认设为0）
 + 调整部分翻译
 
+## 注意：如果你服务端用了[fp-multiuser](https://github.com/gofrp/fp-multiuser)插件，那么`基础设置`下的`用户名`就相当于该插件的`user`，只需要在`附加参数`中增加`meta_token=xxxx`即可
+
 如果你是非amd64（x86-64）平台，请自行修改`FRP_URL`、[root/etc/init.d/frp](root/etc/init.d/frp)中`local frp_url`中与架构相关的部分，将`sdk_url`改为对应架构的sdk地址
 
 ## LEDE SDK下编译（包含[最新的frp](https://github.com/yhl452493373/openwrt-frp.git))
