@@ -1,4 +1,4 @@
-# 适用于amd64的luci-app-frpc
+# 适用于amd64（x86_64）平台lede的luci-app-frpc
 
 从[lede仓库](https://github.com/coolsnowwolf/luci/tree/master/applications/luci-app-frpc)拉取，做了一些调整：
 
