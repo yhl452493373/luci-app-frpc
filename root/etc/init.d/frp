@@ -200,7 +200,7 @@ boot() {
 start() {
 
 	config_load "frp"
-	local enabled server_addr server_port time privilege_token tcp_mux enable_cpool tls_enable
+	local enabled server_addr server_port time privilege_token user tcp_mux enable_cpool tls_enable
 	local pool_count log_level log_max_days login_fail_exit http_proxy protocol admin_port admin_user admin_pwd
 
 	config_get_bool enabled common enabled 1
@@ -210,6 +210,7 @@ start() {
 	config_get server_addr common server_addr
 	config_get server_port common server_port
 	config_get token common token
+	config_get user common user
 	config_get enable_cpool common enable_cpool
 	config_get pool_count common pool_count
 	config_get log_level common log_level
@@ -234,7 +235,7 @@ start() {
 	echo "server_addr=${server_addr}" >>$tmpconf
 	echo "server_port=${server_port}" >>$tmpconf
 	echo "token=${token}" >>$tmpconf
-	config_list_foreach common extra_options add_rule_extra_option $tmpconf
+	[ -n "$user" ] && echo "user=$user" >>$tmpconf
 	echo "log_level=${log_level}" >>$tmpconf
 	echo "log_max_days=${log_max_days}" >>$tmpconf
 	echo "protocol=${protocol}" >>$tmpconf
@@ -244,7 +245,7 @@ start() {
 	[ -n "$admin_port" ] && echo "admin_addr=0.0.0.0" >>$tmpconf && echo "admin_port=$admin_port" >>$tmpconf
 	[ -n "$admin_user" ] && echo "admin_user=$admin_user" >>$tmpconf
 	[ -n "$admin_pwd" ] && echo "admin_pwd=$admin_pwd" >>$tmpconf
-
+	config_list_foreach common extra_options add_rule_extra_option $tmpconf
 
 	config_load "frp"
 	frp_write_bool tcp_mux common 1

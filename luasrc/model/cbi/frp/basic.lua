@@ -23,6 +23,12 @@ t:tab("log", translate("Client Log"))
 e = t:taboption("base", Flag, "enabled", translate("Enabled"))
 e.rmempty = false
 
+e = t:taboption("base", Value, "time", translate("Service registration interval"))
+e.description = translate("0 means disable this feature, unit: min")
+e.datatype = "range(0,59)"
+e.default = 0
+e.rmempty = false
+
 e = t:taboption("base", Value, "server_addr", translate("Server"))
 e.optional = false
 e.rmempty = false
@@ -38,15 +44,15 @@ e.optional = false
 e.password = true
 e.rmempty = false
 
-e = t:taboption("base", DynamicList, "extra_options", translate("Extra options"),
-	translate("List of extra options"))
-e.placeholder = translate("option=value")
-
-e = t:taboption("base", Value, "time", translate("Service registration interval"))
-e.description = translate("0 means disable this feature, unit: min")
-e.datatype = "range(0,59)"
-e.default = 30
+e = t:taboption("base", Value, "user", translate("User"))
+e.description = translate("Commonly used to distinguish you with other clients.")
+e.optional = true
+e.default = ""
 e.rmempty = false
+
+e = t:taboption("base", DynamicList, "extra_options", translate("Extra options"))
+e.description = translate("List of extra options, whitch not shown in settings, such as dial_server_timeout, dial_server_keepalive. if you need those params, you can add extra options dial_server_timeout=10 and dial_server_keepalive=7200")
+e.placeholder = translate("option=value")
 
 e = t:taboption("other", Flag, "login_fail_exit", translate("Exit program when first login failed"))
 e.description = translate("decide if exit program when first login failed, otherwise continuous relogin to frps.")

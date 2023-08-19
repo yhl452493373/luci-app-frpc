@@ -304,8 +304,8 @@ msgstr "插件X-From-Where请求头"
 msgid "Extra options"
 msgstr "附加参数"
 
-msgid "List of extra options"
-msgstr "附加参数列表"
+msgid "List of extra options, whitch not shown in settings, such as dial_server_timeout, dial_server_keepalive. if you need those params, you can add extra options dial_server_timeout=10 and dial_server_keepalive=7200"
+msgstr "未在设置中展现的附加参数列表，如 dial_server_timeout、dial_server_keepalive 。如果你需要这些参数，你可以在这个参数列表中添加 dial_server_timeout=10、dial_server_keepalive=7200 。"
 
 msgid "option=value"
 msgstr "参数名=参数值"
