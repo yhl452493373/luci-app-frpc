@@ -1,5 +1,12 @@
 # luci-app-frpc
 
+从[lede仓库](https://github.com/coolsnowwolf/luci/tree/master/applications/luci-app-frpc)拉取，做了一些调整：
+
++ 去掉了frpc无用的`vhost_http_port `和`vhost_https_port`
++ 增加了`附加参数`设置，可以通过该设置增加类似`user=xxx`，`meta_token=yyy`的配置
++ 默认不启动定时注册（定时注册默认设为0）
++ 调整部分翻译
+
 ## 以下为在LEDE中编译的方法
  
 ### 1、进入到克隆下来的lede目录
