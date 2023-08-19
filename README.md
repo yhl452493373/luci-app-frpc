@@ -43,4 +43,4 @@ make defconfig
 make package/luci-app-frpc/clean
 make package/luci-app-frpc/compile V=s
 ```
-编译后，在`bin/packages/平台架构/luci`下。amd64（x86_64）在 `bin/packages/x86_64/luci` 下
+以上编译时，会拉取最新的frp代码。编译后，在`bin/packages/平台架构/luci`下。amd64（x86_64）在 `bin/packages/x86_64/luci` 下
