@@ -39,8 +39,6 @@ sed -i -e 's/^PKG_HASH.*/PKG_HASH:='''$FRP_HASH'''/' feeds/packages/net/frp/Make
 rm -rf feeds/luci/applications/luci-app-frpc
 git clone https://github.com/yhl452493373/luci-app-frpc feeds/luci/applications/luci-app-frpc
 sed -i -e 's/\tlocal frp_version=.*/\tlocal frp_version='''$FRP_VERSION'''/' feeds/luci/applications/luci-app-frpc/root/etc/init.d/frp
-chmod 755 feeds/luci/applications/luci-app-frpc/root/etc/init.d/frp
-chmod 755 feeds/luci/applications/luci-app-frpc/root/etc/uci-defaults/luci-frp
 
 ./scripts/feeds install -a
 make defconfig
