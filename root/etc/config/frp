@@ -1,4 +1,3 @@
-
 config frp 'common'
 	option log_max_days '3'
 	option login_fail_exit '0'

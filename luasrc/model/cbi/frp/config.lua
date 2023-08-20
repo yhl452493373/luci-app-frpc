@@ -109,6 +109,32 @@ e.description = translate("XTCP Server Name is Service Remark Name of XTCP Serve
 e.default = "p2p_tcp"
 e:depends("xtcp_role", "visitor")
 
+e = t:taboption("base", ListValue, "proxy_protocol_version", translate("Proxy-Protocol Version"))
+e.description = translate("Proxy Protocol to send user's real IP to local services.")
+e.default = "disable"
+e:value("disable", translate("Disable"))
+e:value("v1", translate("V1"))
+e:value("v2", translate("V2"))
+e:depends("type", "tcp")
+e:depends("type", "stcp")
+e:depends("type", "xtcp")
+e:depends("type", "http")
+e:depends("type", "https")
+
+e = t:taboption("base", Flag, "use_encryption", translate("Use Encryption"))
+e.description = translate("Encrypted the communication between frpc and frps, will effectively prevent the traffic intercepted.")
+e.default = "1"
+e.rmempty = false
+
+e = t:taboption("base", Flag, "use_compression", translate("Use Compression"))
+e.description = translate("The contents will be compressed to speed up the traffic forwarding speed, but this will consume some additional cpu resources.")
+e.default = "1"
+e.rmempty = false
+
+e = t:taboption("base", Value, "remark", translate("Service Remark Name"))
+e.description = translate("<font color=\"red\">Please ensure the remark name is unique.</font>")
+e.rmempty = false
+
 e = t:taboption("other", Flag, "enable_locations", translate("Enable URL routing"))
 e.description = translate("Frp support forward http requests to different backward web services by url routing.")
 e:depends("type", "http")
@@ -141,7 +167,7 @@ e = t:taboption("other", Value, "plugin_unix_path", translate("Plugin Unix Sock 
 e.default = "/var/run/docker.sock"
 e:depends("plugin", "unix_domain_socket")
 
-e = t:taboption("other", Flag, "enable_http_auth", translate("Password protecting your web service"))
+e = t:taboption("other", Flag, "enable_http_auth", translate("Safety Certification"))
 e.description = translate("Http username and password are safety certification for http protocol.")
 e.default = "0"
 e:depends("type", "http")
@@ -164,59 +190,55 @@ e.description = translate("The Host header will be rewritten to match the hostna
 e.default = "dev.yourdomain.com"
 e:depends("enable_host_header_rewrite", 1)
 
+e = t:taboption("other", Flag, "enable_http_plugin", translate("Use Plugin"))
+e.default = "0"
+e:depends("type", "http")
+
+e = t:taboption("other", ListValue, "http_plugin", translate("Choose Plugin"))
+e.description = translate("If plugin is defined, Local Host Address and Local Host Port is useless, plugin will handle connections got from frps.")
+e:value("http2https", "http2https")
+e:depends("enable_http_plugin", 1)
+
 e = t:taboption("other", Flag, "enable_https_plugin", translate("Use Plugin"))
 e.default = "0"
 e:depends("type", "https")
 
 e = t:taboption("other", ListValue, "https_plugin", translate("Choose Plugin"))
 e.description = translate("If plugin is defined, local_ip and local_port is useless, plugin will handle connections got from frps.")
-e:value("https2http", translate("https2http"))
+e:value("https2http", "https2http")
+e:value("https2https", "https2https")
 e:depends("enable_https_plugin", 1)
-
-e = t:taboption("other", Value, "plugin_local_addr", translate("Plugin_Local_Addr"))
-e.default = "127.0.0.1:80"
-e:depends("https_plugin", "https2http")
 
 e = t:taboption("other", Value, "plugin_crt_path", translate("plugin_crt_path"))
 e.default = "./server.crt"
 e:depends("https_plugin", "https2http")
+e:depends("https_plugin", "https2https")
 
 e = t:taboption("other", Value, "plugin_key_path", translate("plugin_key_path"))
 e.default = "./server.key"
 e:depends("https_plugin", "https2http")
+e:depends("https_plugin", "https2https")
+
+e = t:taboption("other", Value, "plugin_local_addr", translate("Plugin_Local_Addr"))
+e.default = "127.0.0.1:80"
+e:depends("http_plugin", "http2https")
+e:depends("https_plugin", "https2http")
+e:depends("https_plugin", "https2https")
 
 e = t:taboption("other", Value, "plugin_host_header_rewrite", translate("plugin_host_header_rewrite"))
 e.default = "127.0.0.1"
+e:depends("http_plugin", "http2https")
 e:depends("https_plugin", "https2http")
+e:depends("https_plugin", "https2https")
 
 e = t:taboption("other", Value, "plugin_header_X_From_Where", translate("plugin_header_X-From-Where"))
 e.default = "frp"
+e:depends("http_plugin", "http2https")
 e:depends("https_plugin", "https2http")
+e:depends("https_plugin", "https2https")
 
-e = t:taboption("base", ListValue, "proxy_protocol_version", translate("Proxy-Protocol Version"))
-e.description = translate("Proxy Protocol to send user's real IP to local services.")
-e.default = "disable"
-e:value("disable", translate("Disable"))
-e:value("v1", translate("V1"))
-e:value("v2", translate("V2"))
-e:depends("type", "tcp")
-e:depends("type", "stcp")
-e:depends("type", "xtcp")
-e:depends("type", "http")
-e:depends("type", "https")
-
-e = t:taboption("base", Flag, "use_encryption", translate("Use Encryption"))
-e.description = translate("Encrypted the communication between frpc and frps, will effectively prevent the traffic intercepted.")
-e.default = "1"
-e.rmempty = false
-
-e = t:taboption("base", Flag, "use_compression", translate("Use Compression"))
-e.description = translate("The contents will be compressed to speed up the traffic forwarding speed, but this will consume some additional cpu resources.")
-e.default = "1"
-e.rmempty = false
-
-e = t:taboption("base", Value, "remark", translate("Service Remark Name"))
-e.description = translate("<font color=\"red\">Please ensure the remark name is unique.</font>")
-e.rmempty = false
+e = t:taboption("other", DynamicList, "extra_params", translate("Extra params"))
+e.description = translate("List of extra params, which not shown in Basic Settings, such as role, sk. if you need those params, you can add extra params role=server and sk=123456")
+e.placeholder = translate("param=value")
 
 return a
