@@ -11,7 +11,9 @@
 
 ## 注意：如果你服务端用了[fp-multiuser](https://github.com/gofrp/fp-multiuser)插件，那么`基础设置`下的`用户名`就相当于该插件的`user`，只需要在`附加参数`中增加`meta_token=xxxx`即可
 
-如果你是非amd64（x86-64）平台，请自行修改`FRP_URL`、[root/etc/init.d/frp](root/etc/init.d/frp)中`local frp_url`中与架构相关的部分，将`sdk_url`改为对应架构的sdk地址
+如果你是非amd64（x86-64）平台，请自行修改`FRP_URL`、[root/etc/init.d/frp](root/etc/init.d/frp)中`local frp_url`中与架构相关的部分，将`sdk_url`改为对应架构的sdk地址.
+
+**如果要在windows下修改文件，请记得将文件的换行改为 `LF`，默认情况下，git拉到windows平台，文件换行符会变成`CR+LF`，这会导致编译完成后，`/etc/init.d/frp`无法执行**
 
 ## LEDE SDK下编译（包含[最新的frp](https://github.com/yhl452493373/openwrt-frp.git))
 ```bash
