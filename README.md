@@ -13,6 +13,8 @@
 
 如果你是非amd64（x86-64）平台，请自行修改`FRP_URL`、[root/etc/init.d/frp](root/etc/init.d/frp)中`local frp_url`中与架构相关的部分，将`sdk_url`改为对应架构的sdk地址.
 
+[/root/etc/init.d/frp](/root/etc/init.d/frp) 参考[kuoruan](https://github.com/kuoruan/luci-app-frpc)的代码做了调整
+
 **如果要在windows下修改文件，请记得将文件的换行改为 `LF`，默认情况下，git拉到windows平台，文件换行符会变成`CR+LF`，这会导致编译完成后，`/etc/init.d/frp`无法执行**
 
 ## LEDE SDK下编译（包含[最新的frp](https://github.com/yhl452493373/openwrt-frp.git))
