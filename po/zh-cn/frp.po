@@ -70,8 +70,8 @@ msgstr "使用 TLS 协议与服务器连接(若连接服务器异常可以尝试
 msgid "Protocol Type"
 msgstr "协议类型"
 
-msgid "Protocol specifies the protocol to use when interacting with the server. Valid values are tcp, kcp, quic, websocket, wss.By default, this value is tcp.<font color=\"red\">If the protocol need other params, you can add them by \"Extra params\" in \"Other Settings\"</font>"
-msgstr "指定在与服务器交互时要使用的协议。有效值为tcp、kcp、quic、websocket、wss。默认情况下，此值为tcp。<br/><font color=\"red\">如果使用的协议有附加参数，请在“其他设置”下的“附加参数”中添加</font>"
+msgid "Protocol specifies the protocol to use when interacting with the server. Valid values are tcp, kcp, quic, websocket, wss.By default, this value is tcp.<font color=\"red\">If the protocol need other params, you can add them by \"Extra params\" in \"Other Settings\".</font>"
+msgstr "指定在与服务器交互时要使用的协议。有效值为tcp、kcp、quic、websocket、wss。默认情况下，此值为tcp。<br/><font color=\"red\">如果使用的协议有附加参数，请在“其他设置”下的“附加参数”中添加。</font>"
 
 msgid "Connect frps by HTTP PROXY"
 msgstr "使用代理"
@@ -307,10 +307,10 @@ msgstr "插件X-From-Where请求头"
 msgid "Extra params"
 msgstr "附加参数"
 
-msgid "List of extra params, which not shown in Basic Settings, such as dial_server_timeout, dial_server_keepalive. if you need those params, you can add extra params dial_server_timeout=10 and dial_server_keepalive=7200"
+msgid "List of extra params, which not shown in Basic Settings, such as dial_server_timeout, dial_server_keepalive. if you need those params, you can add extra params dial_server_timeout=10 and dial_server_keepalive=7200."
 msgstr "未在基本设置中展现的附加参数列表，如 dial_server_timeout、dial_server_keepalive 。如果你需要这些参数，你可以在这个参数列表中添加 dial_server_timeout=10、dial_server_keepalive=7200 。"
 
-msgid "List of extra params, which not shown in Basic Settings, such as role, sk. if you need those params, you can add extra params role=server and sk=123456"
+msgid "List of extra params, which not shown in Basic Settings, such as role, sk. if you need those params, you can add extra params role=server and sk=123456."
 msgstr "未在基本设置中展现的附加参数列表，如 role、sk 。如果你需要这些参数，你可以在这个参数列表中添加 role=server、sk=123456 。"
 
 msgid "option=value"
@@ -318,3 +318,6 @@ msgstr "参数名=参数值"
 
 msgid "Http requests with url prefix will be forwarded to this service."
 msgstr "采用最大前缀匹配的规则，用户请求匹配响应的 location 配置，则会被路由到此代理。"
+
+msgid "<font color=\"red\">If the protocol need other params, you can add them by \"Extra params\" in \"Other Settings\".</font>"
+msgstr "<font color=\"red\">如果使用的协议有附加参数，请在“其他设置”下的“附加参数”中添加。</font>"

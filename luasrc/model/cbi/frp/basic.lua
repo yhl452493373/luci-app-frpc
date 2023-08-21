@@ -39,7 +39,7 @@ e.optional = false
 e.rmempty = false
 
 e = t:taboption("base", ListValue, "protocol", translate("Protocol Type"))
-e.description = translate("Protocol specifies the protocol to use when interacting with the server. Valid values are tcp, kcp, quic, websocket, wss.By default, this value is tcp.<font color=\"red\">If the protocol need other params, you can add them by \"Extra params\" in \"Other Settings\"</font>")
+e.description = translate("Protocol specifies the protocol to use when interacting with the server. Valid values are tcp, kcp, quic, websocket, wss.By default, this value is tcp.<font color=\"red\">If the protocol need other params, you can add them by \"Extra params\" in \"Other Settings\".</font>")
 e.default = "tcp"
 e:value("tcp", "tcp")
 e:value("kcp", "kcp")
@@ -132,7 +132,7 @@ e.password = true
 e:depends("admin_enable", 1)
 
 e = t:taboption("other", DynamicList, "extra_params", translate("Extra params"))
-e.description = translate("List of extra params, which not shown in Basic Settings, such as dial_server_timeout, dial_server_keepalive. if you need those params, you can add extra params dial_server_timeout=10 and dial_server_keepalive=7200")
+e.description = translate("List of extra params, which not shown in Basic Settings, such as dial_server_timeout, dial_server_keepalive. if you need those params, you can add extra params dial_server_timeout=10 and dial_server_keepalive=7200.")
 e.placeholder = translate("param=value")
 
 e = t:taboption("log", TextValue, "log")

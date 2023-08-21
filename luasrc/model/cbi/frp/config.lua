@@ -25,6 +25,7 @@ e:value("1", translate("Enable"))
 e:value("0", translate("Disable"))
 
 e = t:taboption("base", ListValue, "type", translate("Frp Protocol Type"))
+e.description = translate("<font color=\"red\">If the protocol need other params, you can add them by \"Extra params\" in \"Other Settings\".</font>")
 e:value("http", translate("HTTP"))
 e:value("https", translate("HTTPS"))
 e:value("tcp", translate("TCP"))
@@ -238,7 +239,7 @@ e:depends("https_plugin", "https2http")
 e:depends("https_plugin", "https2https")
 
 e = t:taboption("other", DynamicList, "extra_params", translate("Extra params"))
-e.description = translate("List of extra params, which not shown in Basic Settings, such as role, sk. if you need those params, you can add extra params role=server and sk=123456")
+e.description = translate("List of extra params, which not shown in Basic Settings, such as role, sk. if you need those params, you can add extra params role=server and sk=123456.")
 e.placeholder = translate("param=value")
 
 return a
