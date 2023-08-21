@@ -39,7 +39,7 @@ e.optional = false
 e.rmempty = false
 
 e = t:taboption("base", ListValue, "protocol", translate("Protocol Type"))
-e.description = translate("Protocol specifies the protocol to use when interacting with the server. Valid values are tcp, kcp, quic, websocket, wss.<br/>By default, this value is tcp.")
+e.description = translate("Protocol specifies the protocol to use when interacting with the server. Valid values are tcp, kcp, quic, websocket, wss.By default, this value is tcp.<font color=\"red\">If the protocol need other params, you can add them by \"Extra params\" in \"Other Settings\"</font>")
 e.default = "tcp"
 e:value("tcp", "tcp")
 e:value("kcp", "kcp")
