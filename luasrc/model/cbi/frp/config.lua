@@ -68,7 +68,7 @@ e:depends("type", "tcp")
 e:depends("type", "udp")
 
 e = t:taboption("other", Flag, "enable_plugin", translate("Use Plugin"))
-e.description = translate("If plugin is defined, local_ip and local_port is useless, plugin will handle connections got from frps.")
+e.description = translate("If plugin is defined, Local Host Address and Local Host Port is useless, plugin will handle connections got from frps.")
 e.default = "0"
 e:depends("type", "tcp")
 
@@ -204,7 +204,7 @@ e.default = "0"
 e:depends("type", "https")
 
 e = t:taboption("other", ListValue, "https_plugin", translate("Choose Plugin"))
-e.description = translate("If plugin is defined, local_ip and local_port is useless, plugin will handle connections got from frps.")
+e.description = translate("If plugin is defined, Local Host Address and Local Host Port is useless, plugin will handle connections got from frps.")
 e:value("https2http", "https2http")
 e:value("https2https", "https2https")
 e:depends("enable_https_plugin", 1)
