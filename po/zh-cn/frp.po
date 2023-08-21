@@ -220,6 +220,9 @@ msgstr "XTCP 服务名称"
 msgid "Enable URL routing"
 msgstr "启用 URL 路由"
 
+msgid "URL routing"
+msgstr "URL 路由"
+
 msgid "Frp support forward http requests to different backward web services by url routing."
 msgstr "Frp 支持通过url路由将http请求转发到不同的反向web服务。"
 
@@ -249,6 +252,12 @@ msgstr "HTTP 用户名"
 
 msgid "HTTP PassWord"
 msgstr "HTTP 密码"
+
+msgid "Host Header"
+msgstr "Host 字段"
+
+msgid "The Host header will be rewritten to match the hostname portion of the forwarding address."
+msgstr "替换发送到本地服务 HTTP 请求中的 Host 字段。"
 
 msgid "Rewriting the Host Header"
 msgstr "修改 Host Header"
@@ -306,3 +315,6 @@ msgstr "未在基本设置中展现的附加参数列表，如 role、sk 。如�
 
 msgid "option=value"
 msgstr "参数名=参数值"
+
+msgid "Http requests with url prefix will be forwarded to this service."
+msgstr "采用最大前缀匹配的规则，用户请求匹配响应的 location 配置，则会被路由到此代理。"
